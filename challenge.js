@@ -68,6 +68,7 @@ let elizabethSanger = {
     voterRegistrationUrl: 'www.google.com'
   };
 
+//Functions List
 
   const printToDom = (stringToPrint, divId) => {
         const selectedDiv = document.getElementById(divId);
@@ -76,25 +77,46 @@ let elizabethSanger = {
 
   const congressionalDistrictStringBuilder = () => {
         const newString = `<h1>Congressional District: ${elizabethSanger.congressionalDistrict}</h1>`;
+        printToDom(newString, 'congressionalDistrict');
   };
 
-  congressionalDistrictStringBuilder();
 
   const donationFormUrlStringBuilder = () => {
       const newString = `<a href="https://${elizabethSanger.donationFormUrl}">Donation Form Here</a>`;
       printToDom(newString, 'donationForm');
   };
 
-  donationFormUrlStringBuilder();
+  
+  const statementsStringBuilder = () => {
+      let newString = '';
+      for (let i = 0; i < elizabethSanger.statements.length; i++){
+        newString += `<div class='statement'>`;
+        newString +=    `<h3>${elizabethSanger.statements[i].category}</h3>`;
+        newString +=    `<h6>${elizabethSanger.statements[i].statement}</h6>`;
+        newString += `</div>`;
+      };
+      printToDom(newString, 'statements');
+  };
+
+  
 
   const voterRegistrationStringBuilder = () => {
     const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}">Register to Vote Here</a>`;
     printToDom(newString, 'voterRegistration')
   };
 
+  
+  // Call Functions
+
+  congressionalDistrictStringBuilder();
+  donationFormUrlStringBuilder();
+  statementsStringBuilder();
   voterRegistrationStringBuilder();
   
+//part 3
+    const updateVoterRegistration = (newUrl) => {
+        elizabethSanger.voterRegistrationUrl = newUrl;
+        voterRegistrationStringBuilder();
+  }; 
 
-//   const updateVoterRegistration = () => {
-//       voterRegistrationStringBuilder();
-//   }; (part 3)
+  updateVoterRegistration('yahoo.com')
