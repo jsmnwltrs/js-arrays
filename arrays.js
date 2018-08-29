@@ -37,11 +37,13 @@ animals.unshift('baby hippo');
 console.log(animals);
 
 //for loops
-// 1. What is your starting value? - usually 0
+// 1. What is your starting value? - 0
 // 2. What is your stoping value? - something.length
 // 3. How are you incermenting? - +1
 
 for (let i = 0; i < animals.length; i++){
     console.log(animals[i]);
 }
+
+
 
