@@ -2,7 +2,27 @@ body {
     background-color: thistle;
 }
 
-.statement {
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.statement, .statementsContainer {
     background-color: lightblue;
     border: 2px solid black;
+}
+
+.events, .eventsContainer {
+    background-color: lavenderblush;
+    border: 2px solid blue;
+}
+
+.volunteers, .volunteersContainer {
+    background-color: lightgoldenrodyellow;
+    border: 2px solid purple;
+}
+
+.images, .imagesContainer {
+    background-color: lightgreen;
+    border: 2px solid goldenrod;
 }

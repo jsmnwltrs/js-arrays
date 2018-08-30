@@ -80,25 +80,70 @@ let elizabethSanger = {
         printToDom(newString, 'congressionalDistrict');
   };
 
+  const statementsStringBuilder = () => {
+    let newString = '';
+    for (let i = 0; i < elizabethSanger.statements.length; i++){
+      newString += `<div class='statement'>`;
+      newString +=    `<h3>${elizabethSanger.statements[i].category}</h3>`;
+      newString +=    `<h4>${elizabethSanger.statements[i].statement}</h4>`;
+      newString += `</div>`;
+    };
+    printToDom(newString, 'statements');
+};
+
 
   const donationFormUrlStringBuilder = () => {
       const newString = `<a href="https://${elizabethSanger.donationFormUrl}">Donation Form Here</a>`;
       printToDom(newString, 'donationForm');
   };
 
-  
-  const statementsStringBuilder = () => {
-      let newString = '';
-      for (let i = 0; i < elizabethSanger.statements.length; i++){
-        newString += `<div class='statement'>`;
-        newString +=    `<h3>${elizabethSanger.statements[i].category}</h3>`;
-        newString +=    `<h6>${elizabethSanger.statements[i].statement}</h6>`;
-        newString += `</div>`;
-      };
-      printToDom(newString, 'statements');
+  const eventsStringBuilder = () => {
+    let newString = '';
+    for (let i = 0; i < elizabethSanger.events.length; i++) {
+      newString += `<div class='events'>`;
+      newString +=    `<h3>${elizabethSanger.events[i].title}</h3>`;
+      newString +=    `<p>${elizabethSanger.events[i].date}</p>`;
+      newString +=    `<p>${elizabethSanger.events[i].description}</p>`;
+      newString += `</div>`
+    };
+    printToDom(newString, 'events');
   };
 
-  
+  const volunteersStringBuilder = () => {
+    let newString = '';
+    for (let i = 0; i < elizabethSanger.volunteers.length; i++) {
+      newString += `<div class='volunteers'>`;
+      newString +=    `<h3>${elizabethSanger.volunteers[i].name}</h3>`;
+      newString +=    `<p>Address: ${elizabethSanger.volunteers[i].address}</p>`;
+      newString +=    `<p>Email: ${elizabethSanger.volunteers[i].email}</p>`;
+      newString +=    `<p>Phone: ${elizabethSanger.volunteers[i].phone}</p>`;
+      newString +=    `<p>Availability: ${elizabethSanger.volunteers[i].availability}</p>`;
+      newString +=    `<p>Activities: ${elizabethSanger.volunteers[i].activities}</p>`;
+      newString += `</div>`;
+    };
+    printToDom(newString, 'volunteers');
+  };
+
+  const biographyStringBuilder = () => {
+    const newString = `<h3>Biography: ${elizabethSanger.biography}</h3>`;
+    printToDom(newString, 'biography');
+  };
+ 
+  const imagesStringBuilder = () => {
+    let newString = '';
+    for (let i = 0; i < elizabethSanger.images.length; i++) {
+      newString += `<div class=images>`;
+      newString +=    `<img src="${elizabethSanger.images[i].imageUrl}" alt="${elizabethSanger.images[i].type}">`;
+      newString +=    `<p>${elizabethSanger.images[i].description}</p>`;
+      newString += `</div>`;
+    };
+    printToDom(newString, 'images');
+  }
+
+  const missionStatementStringBuilder = () => {
+    const newString = `<h3>Mission Statement: ${elizabethSanger.missionStatement}</h3>`;
+    printToDom(newString, 'missionStatement');
+  };
 
   const voterRegistrationStringBuilder = () => {
     const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}">Register to Vote Here</a>`;
@@ -109,14 +154,19 @@ let elizabethSanger = {
   // Call Functions
 
   congressionalDistrictStringBuilder();
-  donationFormUrlStringBuilder();
   statementsStringBuilder();
+  donationFormUrlStringBuilder();
+  eventsStringBuilder ();
+  volunteersStringBuilder ();
+  biographyStringBuilder();
+  imagesStringBuilder();
+  missionStatementStringBuilder ();
   voterRegistrationStringBuilder();
   
 //part 3
-    const updateVoterRegistration = (newUrl) => {
-        elizabethSanger.voterRegistrationUrl = newUrl;
-        voterRegistrationStringBuilder();
-  }; 
+  //   const updateVoterRegistration = (newUrl) => {
+  //       elizabethSanger.voterRegistrationUrl = newUrl;
+  //       voterRegistrationStringBuilder();
+  // }; 
 
-  updateVoterRegistration('yahoo.com')
+  // updateVoterRegistration('yahoo.com')
