@@ -1,4 +1,5 @@
 
+// Data
 
 let elizabethSanger = {
     congressionalDistrict: 5,
@@ -68,7 +69,7 @@ let elizabethSanger = {
     voterRegistrationUrl: 'www.google.com'
   };
 
-//Functions List
+//Part 2 Functions List
 
   const printToDom = (stringToPrint, divId) => {
         const selectedDiv = document.getElementById(divId);
@@ -153,6 +154,7 @@ let elizabethSanger = {
   
   // Call Functions
 
+
   congressionalDistrictStringBuilder();
   statementsStringBuilder();
   donationFormUrlStringBuilder();
@@ -163,10 +165,79 @@ let elizabethSanger = {
   missionStatementStringBuilder ();
   voterRegistrationStringBuilder();
   
-//part 3
-  //   const updateVoterRegistration = (newUrl) => {
-  //       elizabethSanger.voterRegistrationUrl = newUrl;
-  //       voterRegistrationStringBuilder();
-  // }; 
+//Part 3 Update Functions List
 
-  // updateVoterRegistration('yahoo.com')
+
+    const updateCongressionalDistrict = (newNum) => {
+      elizabethSanger.congressionalDistrict = newNum;
+      congressionalDistrictStringBuilder();
+    };
+
+    const updateStatements = (newStatement, newCategory) => {
+      let newObject = {statement: newStatement, category: newCategory};
+      elizabethSanger.statements.push(newObject);
+      statementsStringBuilder();
+    };
+
+
+    const updateDonationFormUrl = (newUrl) => {
+      elizabethSanger.donationFormUrl = newUrl;
+      donationFormUrlStringBuilder();
+    };
+
+    const updateEvents = (newDate, newTitle, newDescription) => {
+      let newObject = {date: newDate, title: newTitle, description: newDescription};
+      elizabethSanger.events.push(newObject);
+      eventsStringBuilder();
+    };
+
+    const updateVolunteers = (newName, newAddress, newEmail, newPhone, newAvailability, newActivities) => {
+      let newObject = {
+        name: newName,
+        address: newAddress,
+        email: newEmail,
+        phone: newPhone,
+        availability: newAvailability,
+        activities:newActivities
+      };
+      elizabethSanger.volunteers.push(newObject);
+      volunteersStringBuilder();
+    };
+
+    
+
+    const updateBiography = (newString) => {
+      elizabethSanger.biography = newString;
+      biographyStringBuilder();
+    };
+
+    const updateImages = (newImageUrl, newDescription, newType) => {
+      let newObject = {imageUrl: newImageUrl,
+        description: newDescription,
+        type: newType};
+      elizabethSanger.images.push(newObject);  
+      imagesStringBuilder();
+    };
+
+    const updateMissionStatement = (newString) => {
+      elizabethSanger.missionStatement = newString;
+      missionStatementStringBuilder();
+    };
+
+    const updateVoterRegistration = (newUrl) => {
+        elizabethSanger.voterRegistrationUrl = newUrl;
+        voterRegistrationStringBuilder();
+  }; 
+
+
+  // Call Update Functions
+
+  updateCongressionalDistrict('9');
+  updateStatements('you have labor day off', 'Jobs');
+  updateDonationFormUrl('yahoo.com');
+  updateEvents('02/08/2019', 'My Birthday!', 'Invite all my friends to the party');
+  updateVolunteers('Jasmine Walters', '123 Abby Road', 'jsmnwltrs@gmail.com', '555-555-5555', 'always available', 'eating food');
+  updateBiography("I love food!");
+  updateImages('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1pnmejOGtG4yLFCN9L_cBxVO_-PfP7d7Ie4seEHargy4EZw5T9Q', 'Silly Dog', 'Dog');
+  updateMissionStatement("Great job!!");
+  updateVoterRegistration('yahoo.com')
